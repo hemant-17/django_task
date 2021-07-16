@@ -1,0 +1,39 @@
+{% extends 'basic.html' %}
+
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  {% for message in messages %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error!</strong>{{message}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+<h3>Registeration Form </h3>
+<form action= "#" method="POST">
+  {% csrf_token %}
+  <div class="form-row">
+    <div class="form-group col-md-6 mt-3">
+      <label for="inputEmail4">Username</label>
+      <input type="text" class="form-control" id="username" name="username">
+    </div>
+    <div class="form-group col-md-6 mt-3">
+      <label for="inputPassword4">Email</label>
+      <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Password</label>
+      <input type="password" class="form-control" id="password1" name="password1">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Confirm Password</label>
+      <input type="password" class="form-control" id="password2" name="password2">
+    </div>
+  </div>
+
+    <button type="submit" class="mt-3 btn btn-primary">Submit</button>
+  </form>
+</div>
+{% endblock %}
